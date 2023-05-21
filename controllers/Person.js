@@ -1,4 +1,4 @@
-const router = required('express').router()
+const router = require('express').Router()
 const Person = require('../models/Person')
 
 router.get('/', async (req, res) => {
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const User = await Person(req.body).save()
+        const User = await new Person(req.body).save()
         res.json(user)
     } catch (error) {
         console.log('error retreiving people:', error)

@@ -2,12 +2,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
-const personController = require('./controllers/Persons')
+const personController = require('./controllers/Person')
 
 const app = express()
 
 //middleware
-app.use(express.json)
+app.use(express.json())
 
 //routes
 app.use('/people', personController)
@@ -20,3 +20,4 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const PORT = process.env.PORT
 
 app.listen(PORT, console.log(`listening on port ${PORT}`)) // npx nodemon index.js
+
